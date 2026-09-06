@@ -12,7 +12,8 @@ function State(){
         <h1>Count:{count}</h1>
         {/* <button onClick={()=>setCount(count +1)}>increase</button> */}
 
-        <button onClick={increase}>Increase</button>
+        <button onClick={increase}>Increase</button><br></br><br/><hr></hr>
+        
         </>
 
      
