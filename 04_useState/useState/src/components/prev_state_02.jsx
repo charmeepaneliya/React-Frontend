@@ -20,7 +20,7 @@ function PrevState() {
         <button onClick={increaseOne}>Increase1</button>
         
       
-      <button onClick={increase}>Increase5</button>
+      <button onClick={increase}>Increase5</button><br/><br/><hr/><br/>
     </>
   );
 }
