@@ -33,3 +33,14 @@ function MultipleState() {
   );
 }
 export default MultipleState;
+
+
+
+// useState: Used to create and manage state.
+// state: Data that can change in a component.
+// setCount: Used to update the state.
+// onClick: Runs a function when the button is clicked.
+// function: A block of code that performs a task.
+// return: Returns the UI of the component.
+// export default: Allows the component to be used in other files.
+

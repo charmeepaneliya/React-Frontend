@@ -10,6 +10,9 @@ function State(){
     function handleClick(){
         setCount(count + 1);
     }
+    function decrease(){
+        setCount(count - 1);
+    }
     return(
         <>
         <h1>Count:{count}</h1>
@@ -38,6 +41,9 @@ function State(){
         {/* This is not allowed */}
 
         {/* <button onClick={handleClick()}>Increase</button> */}
+
+        <button onClick={decrease}>decrease</button>
+        {/* <button onClick={()=>setCount(count - 1)}>decrease</button> */}
         
 
         </>
