@@ -1,11 +1,20 @@
-import React from 'react'
-
+import { useState } from "react";
+import State from "./components/state_01.jsx";
+import PrevState from "./components/prev_state_03.jsx";
+import MultipleState from "./components/multiple_state_04.jsx";
+import State02 from "./components/state_02.jsx";
+ 
 const App = () => {
-  return (
-    <div>
-      <h1></h1>
-    </div>
-  )
-}
+  const [counter, setCounter] = useState(10);
+  console.log("app");
 
-export default App
+  return (
+    <>
+      {/* <State/> */}
+      {/* <PrevState /> */}
+      <MultipleState/>
+      {/* <State02/> */}
+    </>
+  );
+};
+export default App;
