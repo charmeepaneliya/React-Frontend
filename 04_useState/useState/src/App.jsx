@@ -6,6 +6,8 @@ import State02 from "./components/state_02.jsx";
 import NameExample from './components/nameExample.jsx'
 import ObjectUseState from "./components/objectUseState.jsx";
 import State_05 from "./components/state_05.jsx";
+import LifeCycle01 from "./components/lifeCycle01.jsx"
+import UseEffect_fetch from "./components/useEffect_fetch.jsx";
  
 const App = () => {
   const [counter, setCounter] = useState(10);
@@ -19,7 +21,9 @@ const App = () => {
       {/* <State02/> */}
       {/* <NameExample/> */}
       {/* <ObjectUseState/> */}
-      < State_05/>
+      {/* < State_05/> */}
+      {/* <LifeCycle01/> */}
+      <UseEffect_fetch/>
     </>
   );
 };
