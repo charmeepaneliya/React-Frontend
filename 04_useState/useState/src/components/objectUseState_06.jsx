@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ObjectUseState = () => {
+const ObjectUseState_06 = () => {
   // Create a state variable "user" with email and password properties 
   // setUser is used to update the user state
   const [user, setUser] = useState({
@@ -49,4 +49,4 @@ const ObjectUseState = () => {
     </>
   );
 };
-export default ObjectUseState;
+export default ObjectUseState_06;

@@ -1,6 +1,6 @@
 import { useEffect,useState } from "react";
 
-const LifeCycle01 =() =>{
+const LifeCycle07 =() =>{
     const [count,setCount] = useState(0);
 
     const handleCount = (e)=>{
@@ -36,4 +36,4 @@ const LifeCycle01 =() =>{
         </>
     )
 }
-export default LifeCycle01;
+export default LifeCycle07;

@@ -4,10 +4,12 @@ import PrevState from "./components/prev_state_03.jsx";
 import MultipleState from "./components/multiple_state_04.jsx";
 import State02 from "./components/state_02.jsx";
 import NameExample from './components/nameExample.jsx'
-import ObjectUseState from "./components/objectUseState.jsx";
+import ObjectUseState_06 from "./components/objectUseState_06.jsx";
 import State_05 from "./components/state_05.jsx";
-import LifeCycle01 from "./components/lifeCycle01.jsx"
-import UseEffect_fetch from "./components/useEffect_fetch.jsx";
+import LifeCycle07 from "./components/lifeCycle07.jsx"
+
+import UseEffect_fetch_09 from "./components/useEffect_fetch_09.jsx";
+import UseEffect_fetch_10 from "./components/useEffect_fetch_10.jsx";
  
 const App = () => {
   const [counter, setCounter] = useState(10);
@@ -20,10 +22,11 @@ const App = () => {
       {/* <MultipleState/> */}
       {/* <State02/> */}
       {/* <NameExample/> */}
-      {/* <ObjectUseState/> */}
+      {/* <ObjectUseState_06/> */}
       {/* < State_05/> */}
-      {/* <LifeCycle01/> */}
-      <UseEffect_fetch/>
+      {/* <LifeCycle07/> */}
+      {/* <UseEffect_fetch_09/> */}
+      < UseEffect_fetch_10/>
     </>
   );
 };
