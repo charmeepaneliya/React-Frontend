@@ -4,6 +4,8 @@ import './App.css'
 import Props_01 from './components/props_01'
 import Conditional_Rendaring_02 from './components/Conditional_rendaring_02'
 import Conditional_rendaring_03 from './components/Conditional_rendaring_03'
+import Controlled_components_06 from './components/Controlled_componants_06'
+import Uncontrolled_components_07 from './components/Uncontrolled_components_07'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,7 +19,9 @@ function App() {
 
     {/* <Conditional_Rendaring_02/> */}
 
-    < Conditional_rendaring_03/>
+    {/* < Conditional_rendaring_03/> */}
+    {/* <Controlled_components_06/> */}
+    <Uncontrolled_components_07/>
       
     </>
   )
