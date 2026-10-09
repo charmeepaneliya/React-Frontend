@@ -1,0 +1,222 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.portfolio-navbar {
+  position: relative;
+  z-index: 1000;
+  padding: 16px 0;
+  background: rgba(8, 13, 26, 0.96);
+  border-bottom: 1px solid rgba(0, 245, 160, 0.16);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Animated Gradient Border */
+.portfolio-navbar::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00f5a0,
+    #00d9ff,
+    #00f5a0,
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: navbarBorderFlow 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes navbarBorderFlow {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}
+
+/* Logo */
+.navbar-logo {
+  display: inline-block;
+  color: #e8f0ff !important;
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo span {
+  color: #00f5a0;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo:hover span {
+  color: #00d9ff;
+}
+
+/* Navigation Links */
+.navbar-links {
+  gap: 10px;
+  align-items: center;
+}
+
+.portfolio-navbar .nav-link {
+  position: relative;
+  display: inline-block;
+  color: #b7c3d8 !important;
+  font-size: 0.96rem;
+  font-weight: 500;
+  padding: 9px 12px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Smooth Active Underline */
+.portfolio-navbar .nav-link:not(.contact-link)::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 12px;
+  width: calc(100% - 24px);
+  height: 2px;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    #00f5a0,
+    #00d9ff
+  );
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-navbar .nav-link:not(.contact-link):hover,
+.portfolio-navbar .nav-link:not(.contact-link).active {
+  color: #00f5a0 !important;
+}
+
+.portfolio-navbar .nav-link:not(.contact-link):hover::after,
+.portfolio-navbar .nav-link:not(.contact-link).active::after {
+  transform: scaleX(1);
+}
+
+/* Contact Link */
+.portfolio-navbar .contact-link {
+  display: inline-block;
+  padding: 9px 18px;
+  margin-left: 5px;
+  border: 1px solid #00d9ff;
+  border-radius: 8px;
+  color: #00d9ff !important;
+  background: rgba(0, 217, 255, 0.04);
+  text-align: center;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.portfolio-navbar .contact-link::after {
+  display: none !important;
+}
+
+.portfolio-navbar .contact-link:hover,
+.portfolio-navbar .contact-link.active {
+  color: #07131d !important;
+  background: linear-gradient(110deg, #00f5a0, #00d9ff);
+  border-color: #00f5a0;
+  box-shadow: 0 0 18px rgba(0, 217, 255, 0.2);
+}
+
+/* Mobile Toggle */
+.portfolio-navbar .navbar-toggler {
+  border: 1px solid rgba(0, 245, 160, 0.6);
+  border-radius: 8px;
+  padding: 7px 10px;
+  box-shadow: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.portfolio-navbar .navbar-toggler:hover {
+  border-color: #00d9ff;
+}
+
+.portfolio-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(0, 245, 160, 0.14);
+}
+
+/* Bootstrap Toggle Icon */
+.portfolio-navbar .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .portfolio-navbar {
+    padding: 13px 0;
+  }
+
+  .navbar-links {
+    align-items: flex-start;
+    gap: 5px;
+    padding-top: 16px;
+  }
+
+  .portfolio-navbar .nav-link {
+    display: inline-block;
+    padding: 10px 0;
+  }
+
+  .portfolio-navbar .nav-link:not(.contact-link)::after {
+    left: 0;
+    width: 100%;
+  }
+
+  .portfolio-navbar .contact-link {
+    margin: 8px 0 4px;
+    padding: 9px 18px;
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 576px) {
+  .navbar-logo {
+    font-size: 1.45rem;
+  }
+
+  .portfolio-navbar {
+    padding: 12px 0;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-navbar::after {
+    animation: none;
+  }
+
+  .portfolio-navbar .nav-link,
+  .portfolio-navbar .contact-link,
+  .portfolio-navbar .navbar-logo,
+  .portfolio-navbar .navbar-toggler {
+    transition: none;
+  }
+}

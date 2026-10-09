@@ -1,0 +1,219 @@
+
+/* ==============================
+   GLOBAL RESET
+============================== */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* ==============================
+   THEME VARIABLES
+============================== */
+
+:root {
+  --bg-primary: #080d1a;
+  --bg-secondary: #0c1424;
+  --bg-card: #101b2e;
+
+  --accent-primary: #00f5a0;
+  --accent-secondary: #00d9ff;
+
+  --text-primary: #e8f0ff;
+  --text-secondary: #c5d1e5;
+  --text-muted: #9eacc3;
+
+  --border-color: rgba(0, 245, 160, 0.16);
+
+  --font-primary: "Poppins", sans-serif;
+
+  --transition-fast: 0.3s ease;
+  --section-padding: 80px 0;
+}
+
+/* ==============================
+   HTML
+============================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+/* ==============================
+   BODY
+============================== */
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+
+  background-image:
+    radial-gradient(
+      ellipse at 15% 15%,
+      rgba(0, 245, 160, 0.09),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 85% 35%,
+      rgba(0, 217, 255, 0.08),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(0, 245, 160, 0.05),
+      transparent 45%
+    );
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+
+  overflow-x: clip;
+}
+
+/* ==============================
+   ROOT CONTAINER
+============================== */
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ==============================
+   HEADINGS
+============================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+}
+
+/* ==============================
+   PARAGRAPHS
+============================== */
+
+p {
+  color: var(--text-muted);
+}
+
+/* ==============================
+   LINKS
+============================== */
+
+a {
+  transition: color var(--transition-fast);
+}
+
+/* ==============================
+   IMAGES
+============================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==============================
+   BUTTONS
+============================== */
+
+button {
+  font-family: inherit;
+}
+
+/* ==============================
+   TEXT SELECTION
+============================== */
+
+::selection {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+}
+
+/* ==============================
+   SCROLLBAR
+============================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* ==============================
+   COMMON ACCENT TEXT
+============================== */
+
+.text-accent {
+  color: var(--accent-primary) !important;
+}
+
+/* ==============================
+   ACCESSIBILITY
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==============================
+   RESPONSIVE SPACING
+============================== */
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 55px 0;
+  }
+
+  html {
+    scroll-padding-top: 75px;
+  }
+}
