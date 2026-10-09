@@ -15,7 +15,7 @@ const Testimonials = lazy(()=>import("./pages/Testimonials"));
 const Contact = lazy(()=>import("./pages/Contact"));
 
 
-const ProjectDetails = lazy(()=>import("./pages/projectDetails"))
+const ProjectDetails = lazy(()=>import("./pages/ProjectDetails.jsx"))
 
 const App = () => {
 
@@ -57,6 +57,10 @@ const App = () => {
         {
           path:"contact",
           element:<Contact/>
+        },
+        {
+          path:"*",
+          element:<ErrorPage/>
         }
       ]
     }

@@ -1,11 +1,19 @@
-import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+
+  const navigate = useNavigate();
+    
+  
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welcome to my portfolio.</p>
-    </div>
+    <>
+      <h1>Hi, I'am Charmee Paneliya</h1>
+      <h2>Full Stack Developer</h2>
+      <p> I build web applications using modern web technologies.</p>
+
+      <button onClick={()=>navigate("/contact")}>Contact Me</button>
+      <button onClick={()=>navigate("/projects")}>View Projects</button>
+    </>
   )
 }
 

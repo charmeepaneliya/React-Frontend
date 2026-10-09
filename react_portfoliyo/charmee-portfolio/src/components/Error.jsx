@@ -1,9 +1,15 @@
+import {Link,useRouteError} from "react-router-dom";
+
 const ErrorPage = () => {
+  const error = useRouteError();
+  
   return (
-    <div>
+    <>
+      <h1>Oops!</h1>
       <h1>Something went wrong!</h1>
-      <p>Page not found or an error occurred.</p>
-    </div>
+      <p>{error?.statusText || error?.message ||"Page not found"}</p>
+      <Link to="/">Go To Home</Link>
+    </>
   );
 };
 

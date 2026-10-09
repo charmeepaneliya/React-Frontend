@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.footer {
+  padding: 24px 20px;
+  text-align: center;
+  background: #0b0f14;
+  color: #a3b0b8;
+  border-top: 1px solid #293640;
+  font-size: 14px;
+}
+
+.footer p + p {
+  margin-top: 6px;
+}
+
+.footer p:last-child {
+  color: #39e58c;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 20px 14px;
+    font-size: 12px;
+  }
+}
