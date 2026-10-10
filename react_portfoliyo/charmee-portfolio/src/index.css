@@ -1,14 +1,11 @@
-nav {
-  display: flex;
-  gap: 20px;
-}
-
-nav a {
-  text-decoration: none;
-  color: black;
-}
-
-nav a.active {
-  color: green;
-  font-weight: bold;
-}
+/*
+ * index.css
+ * Legacy styles from initial project setup.
+ * All meaningful styles have been moved to:
+ *   - src/styles/variables.css  (design tokens)
+ *   - src/styles/global.css     (global resets & utilities)
+ *   - src/components/*.css      (component-level styles)
+ *   - src/pages/*.css           (page-level styles)
+ *
+ * Clearing the old nav rules to avoid conflicts with Navbar.css.
+ */

@@ -1,0 +1,52 @@
+/* ==============================
+   ERROR PAGE
+   Charmee Paneliya Portfolio
+============================== */
+
+.error-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--section-padding);
+  text-align: center;
+}
+
+.error-page__inner {
+  max-width: 480px;
+}
+
+.error-page__code {
+  font-family: var(--font-mono);
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  background: var(--accent-gradient-text);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 4s linear infinite;
+  margin-bottom: 16px;
+}
+
+.error-page__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.error-page__message {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.error-page__comment {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  opacity: 0.55;
+  margin-bottom: 28px;
+}

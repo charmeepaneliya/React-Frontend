@@ -1,0 +1,126 @@
+/* ==============================
+   PROJECT DETAILS PAGE
+   Charmee Paneliya Portfolio
+============================== */
+
+.project-details-section {
+  padding: var(--section-padding);
+}
+
+/* ── Back button ── */
+.project-details__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: none;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  margin-bottom: 36px;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.project-details__back:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  background: rgba(0, 245, 160, 0.05);
+}
+
+/* ── Header block ── */
+.project-details__header {
+  margin-bottom: 32px;
+}
+
+.project-details__id {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-primary);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.project-details__title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
+/* ── Body card ── */
+.project-details__body {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+}
+
+/* Description */
+.project-details__desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 32px;
+}
+
+/* Tech section */
+.project-details__tech-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.project-details__tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.project-details__tech-badge {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  background: rgba(0, 245, 160, 0.08);
+  border: 1px solid rgba(0, 245, 160, 0.22);
+  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+}
+
+/* Footer actions */
+.project-details__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ── Not found state ── */
+.project-not-found {
+  padding: var(--section-padding);
+  text-align: center;
+}
+
+.project-not-found h1 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.project-not-found p {
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 576px) {
+  .project-details__body { padding: 24px 18px; }
+}

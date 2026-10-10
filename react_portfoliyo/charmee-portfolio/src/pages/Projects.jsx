@@ -1,35 +1,48 @@
 import { Link } from "react-router-dom";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { projects } from "../data/Projects-data";
 import ProjectCard from "../components/ProjectCard";
-import "./Projects.css"
+import "./Projects.css";
 
-const Projects = () => {
+const Projects = ({ id, showViewAll = false }) => {
+  const visibleProjects = showViewAll ? projects.slice(0, 3) : projects;
+
   return (
-    <>
-      {/* <h1>Project page</h1> */}
-      {/* <Link to="/projects/local-hub">Local-Hub</Link><br/>
-      <Link to="/projects/to-do-list">ToDo List</Link><br/>
-      <Link to="/projects/portfolio">Portfolio</Link><br/> */}
+    <section className="projects-section" id={id}>
+      <Container>
+        {/* Page heading */}
+        <p className="section-eyebrow">my work</p>
+        <h1 className="section-title">
+          Featured <span>Projects</span>
+        </h1>
+        <span className="gradient-line" aria-hidden="true"></span>
+        <p className="section-desc">
+          A selection of projects I&apos;ve built — each one a chance to solve
+          a real problem and learn something new.
+        </p>
 
-      {/* {projects.map((project) => (
-        <div key={project.id}>
-          <h2>{project.title}</h2>
-          <p>{project.description}</p>
-
-          <Link to={`/projects/${project.id}`}>View Project</Link>
-        </div>
-      ))} */}
-
-
-      <section>
-        <h1>My Projects</h1>
-        <div className="project-container">
-          {projects.map((project)=>(
-            <ProjectCard key={project.id} project={project}/>
+        {/* Project cards grid */}
+        <Row className="g-4">
+          {visibleProjects.map((project) => (
+            <Col key={project.id} lg={4} md={6} xs={12}>
+              <ProjectCard project={project} />
+            </Col>
           ))}
-        </div>
-      </section>
-    </>
+        </Row>
+
+        {showViewAll && (
+          <div className="d-flex justify-content-center mt-5">
+            <Button
+              as={Link}
+              to="/projects"
+              className="btn-outline-neon"
+            >
+              View All Projects
+            </Button>
+          </div>
+        )}
+      </Container>
+    </section>
   );
 };
 

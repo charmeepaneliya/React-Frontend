@@ -1,198 +1,279 @@
-
 /* ==============================
-   GLOBAL RESET
+   GLOBAL STYLES
+   Charmee Paneliya Portfolio
 ============================== */
 
-* {
+/* ── Reset ── */
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-/* ==============================
-   THEME VARIABLES
-============================== */
-
-:root {
-  --bg-primary: #080d1a;
-  --bg-secondary: #0c1424;
-  --bg-card: #101b2e;
-
-  --accent-primary: #00f5a0;
-  --accent-secondary: #00d9ff;
-
-  --text-primary: #e8f0ff;
-  --text-secondary: #c5d1e5;
-  --text-muted: #9eacc3;
-
-  --border-color: rgba(0, 245, 160, 0.16);
-
-  --font-primary: "Poppins", sans-serif;
-
-  --transition-fast: 0.3s ease;
-  --section-padding: 80px 0;
-}
-
-/* ==============================
-   HTML
-============================== */
-
+/* ── HTML ── */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 80px;
 }
 
-/* ==============================
-   BODY
-============================== */
+section[id] {
+  scroll-margin-top: 16px;
+}
 
+/* ── Body ── */
 body {
   min-height: 100vh;
   background-color: var(--bg-primary);
 
+  /* Subtle ambient glows — fixed so they don't repeat on scroll */
   background-image:
-    radial-gradient(
-      ellipse at 15% 15%,
-      rgba(0, 245, 160, 0.09),
-      transparent 38%
-    ),
-    radial-gradient(
-      ellipse at 85% 35%,
-      rgba(0, 217, 255, 0.08),
-      transparent 38%
-    ),
-    radial-gradient(
-      ellipse at 50% 100%,
-      rgba(0, 245, 160, 0.05),
-      transparent 45%
-    );
-
+    radial-gradient(ellipse at 12% 10%, rgba(0, 245, 160, 0.07), transparent 40%),
+    radial-gradient(ellipse at 88% 30%, rgba(0, 217, 255, 0.06), transparent 40%),
+    radial-gradient(ellipse at 50% 95%, rgba(0, 245, 160, 0.04), transparent 45%);
   background-repeat: no-repeat;
   background-attachment: fixed;
 
   color: var(--text-primary);
   font-family: var(--font-primary);
-  line-height: 1.6;
-
-  overflow-x: clip;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
 }
 
-/* ==============================
-   ROOT CONTAINER
-============================== */
-
+/* ── Root Container ── */
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* ==============================
-   MAIN CONTENT
-============================== */
-
+/* ── Main Content ── */
 main {
   flex: 1;
   min-width: 0;
 }
 
-/* ==============================
-   HEADINGS
-============================== */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* ── Headings ── */
+h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
+  font-family: var(--font-primary);
+  line-height: 1.25;
 }
 
-/* ==============================
-   PARAGRAPHS
-============================== */
-
+/* ── Paragraphs ── */
 p {
   color: var(--text-muted);
+  line-height: 1.75;
 }
 
-/* ==============================
-   LINKS
-============================== */
-
+/* ── Links ── */
 a {
   transition: color var(--transition-fast);
+  text-decoration: none;
 }
 
-/* ==============================
-   IMAGES
-============================== */
-
+/* ── Images ── */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* ==============================
-   BUTTONS
-============================== */
-
+/* ── Buttons ── */
 button {
-  font-family: inherit;
+  font-family: var(--font-primary);
+  cursor: pointer;
 }
 
-/* ==============================
-   TEXT SELECTION
-============================== */
+/* ── Monospace text ── */
+code, .mono {
+  font-family: var(--font-mono);
+}
 
+/* ── Text Selection ── */
 ::selection {
   background: var(--accent-primary);
   color: var(--bg-primary);
 }
 
-/* ==============================
-   SCROLLBAR
-============================== */
-
+/* ── Scrollbar ── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    var(--accent-primary),
-    var(--accent-secondary)
-  );
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
   border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-secondary);
 }
 
 /* ==============================
-   COMMON ACCENT TEXT
+   SHARED UTILITY CLASSES
 ============================== */
 
+/* Accent text color */
 .text-accent {
   color: var(--accent-primary) !important;
+}
+
+/* Section wrapper */
+.section-wrapper {
+  padding: var(--section-padding);
+  position: relative;
+}
+
+/* Page section heading */
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-eyebrow::before {
+  content: "// ";
+  opacity: 0.6;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.section-title span {
+  background: var(--accent-gradient-text);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 5s linear infinite;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin-bottom: 48px;
+}
+
+/* ── Shared gradient accent underline ── */
+.gradient-line {
+  display: block;
+  width: 48px;
+  height: 3px;
+  border-radius: 4px;
+  background: var(--accent-gradient);
+  margin-bottom: 36px;
+}
+
+/* ==============================
+   SHARED BUTTON STYLES
+============================== */
+
+/* Primary filled neon button */
+.btn-neon {
+  display: inline-block;
+  background: var(--accent-gradient) !important;
+  border: none !important;
+  color: #060e0a !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  padding: 13px 28px !important;
+  border-radius: var(--radius-md) !important;
+  letter-spacing: 0.3px;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    filter var(--transition-fast) !important;
+}
+
+.btn-neon:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-neon-hover);
+  filter: brightness(1.06);
+}
+
+.btn-neon:active {
+  transform: translateY(-1px);
+}
+
+/* Secondary outline neon button */
+.btn-outline-neon {
+  display: inline-block;
+  background: rgba(0, 217, 255, 0.04) !important;
+  border: 1px solid var(--accent-secondary) !important;
+  color: var(--accent-secondary) !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  padding: 13px 28px !important;
+  border-radius: var(--radius-md) !important;
+  letter-spacing: 0.3px;
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast) !important;
+}
+
+.btn-outline-neon:hover {
+  background: rgba(0, 217, 255, 0.1) !important;
+  box-shadow: 0 0 22px rgba(0, 217, 255, 0.18);
+  transform: translateY(-3px);
+}
+
+.btn-outline-neon:active {
+  transform: translateY(-1px);
+}
+
+/* ==============================
+   SHARED ANIMATIONS
+============================== */
+
+@keyframes textShine {
+  to { background-position: 200% center; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ==============================
    ACCESSIBILITY
 ============================== */
 
+/* Keyboard focus rings */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 
   *,
   *::before,
@@ -200,20 +281,10 @@ button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
 
-/* ==============================
-   RESPONSIVE SPACING
-============================== */
-
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  :root {
-    --section-padding: 55px 0;
-  }
-
-  html {
-    scroll-padding-top: 75px;
-  }
+  html { scroll-padding-top: 72px; }
 }

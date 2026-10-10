@@ -1,68 +1,60 @@
-// import { NavLink } from "react-router-dom"
-
-// const Navbar = () => {
-//   return (
-//     <nav>
-//         <NavLink to="/" className={({isActive})=>(isActive ? "active" : "")}>Home</NavLink>
-//         <NavLink to="/about" className={({isActive})=>(isActive ? "active" : "")}>About</NavLink>
-//         <NavLink to="/skills" className={({isActive})=>(isActive ? "active" : "")}>Skills</NavLink>
-//         <NavLink to="/projects" className={({isActive})=>(isActive ? "active" : "")}>Projects</NavLink>
-//         <NavLink to="/experience" className={({isActive})=>(isActive ? "active" : "")}>Experience</NavLink>
-//         <NavLink to="/testimonials" className={({isActive})=>(isActive ? "active" : "")}>Testimonials</NavLink>
-//         <NavLink to="/contact" className={({isActive})=>(isActive ? "active" : "")}>Contact</NavLink>
-//     </nav>
-//   )
-// }
-
-// export default Navbar;
-
-
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Navbar as BsNavbar, Nav } from "react-bootstrap";
 import "./Navbar.css";
 
+const sectionLinks = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/skills", label: "Skills" },
+  { to: "/projects", label: "Projects" },
+  { to: "/experience", label: "Experience" },
+  { to: "/testimonials", label: "Testimonials" },
+  { to: "/contact", label: "Contact" },
+];
+
 const Navbar = () => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <BsNavbar expand="lg" className="portfolio-navbar" sticky="top">
+    <BsNavbar
+      expand="lg"
+      className="portfolio-navbar"
+      sticky="top"
+      expanded={expanded}
+      onToggle={setExpanded}
+    >
       <Container>
+        {/* Logo / Brand */}
         <BsNavbar.Brand as={NavLink} to="/" className="navbar-logo">
-          Charmee<span>.</span>
+          <span>
+            Charmee<span className="logo-dot">.</span>
+            <small className="logo-tag">Full Stack Developer</small>
+          </span>
         </BsNavbar.Brand>
 
+        {/* Mobile toggle */}
         <BsNavbar.Toggle
-          aria-controls="portfolio-navbar"
-          className="navbar-toggle"
+          aria-controls="portfolio-navbar-nav"
+          aria-label="Toggle navigation"
+          className="navbar-toggler"
         />
 
-        <BsNavbar.Collapse id="portfolio-navbar">
+        {/* Nav links */}
+        <BsNavbar.Collapse id="portfolio-navbar-nav">
           <Nav className="ms-auto align-items-lg-center navbar-links">
-            <Nav.Link as={NavLink} to="/" end>
-              Home
-            </Nav.Link>
-
-            <Nav.Link as={NavLink} to="/about">
-              About
-            </Nav.Link>
-
-            <Nav.Link as={NavLink} to="/skills">
-              Skills
-            </Nav.Link>
-
-            <Nav.Link as={NavLink} to="/projects">
-              Projects
-            </Nav.Link>
-
-            <Nav.Link as={NavLink} to="/experience">
-              Experience
-            </Nav.Link>
-
-            <Nav.Link as={NavLink} to="/testimonials">
-              Testimonials
-            </Nav.Link>
-
-            <Nav.Link as={NavLink} to="/contact" className="contact-link">
-              Contact
-            </Nav.Link>
+            {sectionLinks.map(({ to, label }) => (
+              <Nav.Link
+                as={NavLink}
+                key={to}
+                to={to}
+                end={to === "/"}
+                className={to === "/contact" ? "contact-link" : undefined}
+                onClick={() => setExpanded(false)}
+              >
+                {label}
+              </Nav.Link>
+            ))}
           </Nav>
         </BsNavbar.Collapse>
       </Container>

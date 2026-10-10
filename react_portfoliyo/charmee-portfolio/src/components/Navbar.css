@@ -1,23 +1,23 @@
+/* ==============================
+   NAVBAR STYLES
+   Charmee Paneliya Portfolio
+============================== */
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-/* Navbar */
+/* ── Base Navbar ── */
 .portfolio-navbar {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1000;
-  padding: 16px 0;
-  background: rgba(8, 13, 26, 0.96);
-  border-bottom: 1px solid rgba(0, 245, 160, 0.16);
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  padding: 14px 0;
+  background: rgba(8, 13, 26, 0.97);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-navbar);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: padding var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-/* Animated Gradient Border */
+/* ── Animated Gradient Border (bottom accent line) ── */
 .portfolio-navbar::after {
   content: "";
   position: absolute;
@@ -25,88 +25,91 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #00f5a0,
-    #00d9ff,
-    #00f5a0,
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, #00f5a0, #00d9ff, #00f5a0, transparent);
   background-size: 200% 100%;
   animation: navbarBorderFlow 6s linear infinite;
   pointer-events: none;
 }
 
 @keyframes navbarBorderFlow {
-  from {
-    background-position: 100% 0;
-  }
-
-  to {
-    background-position: -100% 0;
-  }
+  from { background-position: 100% 0; }
+  to   { background-position: -100% 0; }
 }
 
-/* Logo */
+/* ── Logo / Brand ── */
 .navbar-logo {
-  display: inline-block;
-  color: #e8f0ff !important;
-  font-size: 1.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--text-primary) !important;
+  font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: -0.5px;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  text-decoration: none !important;
+  transition: opacity var(--transition-fast);
 }
 
-.navbar-logo span {
-  color: #00f5a0;
-  transition: color 0.3s ease;
+.navbar-logo:hover {
+  opacity: 0.88;
 }
 
-.navbar-logo:hover span {
-  color: #00d9ff;
+/* The green dot after the name */
+.navbar-logo .logo-dot {
+  color: var(--accent-primary);
+  font-size: 1.8rem;
+  line-height: 1;
 }
 
-/* Navigation Links */
+/* Small monospace subtitle under the name */
+.navbar-logo .logo-tag {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* ── Nav Links container ── */
 .navbar-links {
-  gap: 10px;
+  gap: 4px;
   align-items: center;
 }
 
+/* ── Individual nav links ── */
 .portfolio-navbar .nav-link {
   position: relative;
   display: inline-block;
-  color: #b7c3d8 !important;
-  font-size: 0.96rem;
+  color: var(--text-secondary) !important;
+  font-size: 0.92rem;
   font-weight: 500;
-  padding: 9px 12px;
+  padding: 8px 13px;
   text-decoration: none;
-  transition: color 0.3s ease;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
 }
 
-/* Smooth Active Underline */
+/* ── Hover/Active underline for regular links ── */
 .portfolio-navbar .nav-link:not(.contact-link)::after {
   content: "";
   position: absolute;
-  bottom: 2px;
-  left: 12px;
-  width: calc(100% - 24px);
+  bottom: 3px;
+  left: 13px;
+  width: calc(100% - 26px);
   height: 2px;
   border-radius: 10px;
-  background: linear-gradient(
-    90deg,
-    #00f5a0,
-    #00d9ff
-  );
+  background: var(--accent-gradient);
   transform: scaleX(0);
   transform-origin: center;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-fast);
 }
 
 .portfolio-navbar .nav-link:not(.contact-link):hover,
 .portfolio-navbar .nav-link:not(.contact-link).active {
-  color: #00f5a0 !important;
+  color: var(--accent-primary) !important;
+  background: rgba(0, 245, 160, 0.05);
 }
 
 .portfolio-navbar .nav-link:not(.contact-link):hover::after,
@@ -114,24 +117,26 @@
   transform: scaleX(1);
 }
 
-/* Contact Link */
+/* ── Contact button-style link ── */
 .portfolio-navbar .contact-link {
   display: inline-block;
-  padding: 9px 18px;
-  margin-left: 5px;
-  border: 1px solid #00d9ff;
-  border-radius: 8px;
-  color: #00d9ff !important;
+  padding: 8px 18px;
+  margin-left: 6px;
+  border: 1px solid var(--accent-secondary);
+  border-radius: var(--radius-md);
+  color: var(--accent-secondary) !important;
   background: rgba(0, 217, 255, 0.04);
-  text-align: center;
+  font-weight: 600;
+  font-size: 0.92rem;
   text-decoration: none;
   transition:
-    color 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    color var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
+/* Suppress the underline pseudo-element for contact link */
 .portfolio-navbar .contact-link::after {
   display: none !important;
 }
@@ -139,55 +144,54 @@
 .portfolio-navbar .contact-link:hover,
 .portfolio-navbar .contact-link.active {
   color: #07131d !important;
-  background: linear-gradient(110deg, #00f5a0, #00d9ff);
-  border-color: #00f5a0;
-  box-shadow: 0 0 18px rgba(0, 217, 255, 0.2);
+  background: var(--accent-gradient);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-cyan);
 }
 
-/* Mobile Toggle */
+/* ── Mobile Toggle Button ── */
 .portfolio-navbar .navbar-toggler {
-  border: 1px solid rgba(0, 245, 160, 0.6);
-  border-radius: 8px;
-  padding: 7px 10px;
+  border: 1px solid rgba(0, 245, 160, 0.5);
+  border-radius: var(--radius-sm);
+  padding: 6px 9px;
   box-shadow: none;
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .portfolio-navbar .navbar-toggler:hover {
-  border-color: #00d9ff;
+  border-color: var(--accent-secondary);
 }
 
 .portfolio-navbar .navbar-toggler:focus {
-  box-shadow: 0 0 0 3px rgba(0, 245, 160, 0.14);
+  box-shadow: 0 0 0 3px rgba(0, 245, 160, 0.15);
 }
 
-/* Bootstrap Toggle Icon */
 .portfolio-navbar .navbar-toggler-icon {
   filter: invert(1);
 }
 
-/* Responsive */
+/* ── Mobile / Tablet responsive ── */
 @media (max-width: 991px) {
   .portfolio-navbar {
-    padding: 13px 0;
+    padding: 12px 0;
   }
 
   .navbar-links {
     align-items: flex-start;
-    gap: 5px;
-    padding-top: 16px;
+    gap: 2px;
+    padding: 14px 0 10px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 10px;
   }
 
   .portfolio-navbar .nav-link {
-    display: inline-block;
-    padding: 10px 0;
+    display: block;
+    padding: 10px 4px;
   }
 
   .portfolio-navbar .nav-link:not(.contact-link)::after {
-    left: 0;
-    width: 100%;
+    left: 4px;
+    width: calc(100% - 8px);
   }
 
   .portfolio-navbar .contact-link {
@@ -196,27 +200,16 @@
   }
 }
 
-/* Small Mobile Screens */
+/* ── Small mobile ── */
 @media (max-width: 576px) {
-  .navbar-logo {
-    font-size: 1.45rem;
-  }
-
-  .portfolio-navbar {
-    padding: 12px 0;
-  }
+  .navbar-logo { font-size: 1.38rem; }
 }
 
-/* Accessibility */
+/* ── Accessibility: Reduced Motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-navbar::after {
-    animation: none;
-  }
-
+  .portfolio-navbar::after { animation: none; }
   .portfolio-navbar .nav-link,
   .portfolio-navbar .contact-link,
   .portfolio-navbar .navbar-logo,
-  .portfolio-navbar .navbar-toggler {
-    transition: none;
-  }
+  .portfolio-navbar .navbar-toggler { transition: none; }
 }

@@ -1,41 +1,59 @@
+/* ==============================
+   DESIGN SYSTEM — CSS VARIABLES
+   Charmee Paneliya Portfolio
+============================== */
 
 :root {
-  /* Background Colors */
+  /* ── Background Colors ── */
   --bg-primary: #080d1a;
   --bg-secondary: #0b1220;
   --bg-card: #111a2b;
+  --bg-card-hover: #142035;
 
-  /* Neon Accent Colors */
+  /* ── Neon Accent Colors ── */
   --accent-primary: #00f5a0;
   --accent-secondary: #00d9ff;
+  --accent-gradient: linear-gradient(110deg, #00f5a0, #00d9ff);
+  --accent-gradient-text: linear-gradient(90deg, #00f5a0, #00d9ff, #00f5a0);
 
-  /* Text Colors */
+  /* ── Text Colors ── */
   --text-primary: #e8f0ff;
   --text-secondary: #b7c3d8;
   --text-muted: #9eacc3;
 
-  /* Borders & Background Effects */
+  /* ── Border & Glass ── */
   --border-color: rgba(0, 245, 160, 0.16);
+  --border-subtle: rgba(255, 255, 255, 0.05);
   --glass-bg: rgba(8, 13, 26, 0.96);
 
-  /* Shadows */
-  --shadow-navbar: 0 4px 25px rgba(0, 0, 0, 0.12);
+  /* ── Shadows ── */
+  --shadow-navbar: 0 4px 25px rgba(0, 0, 0, 0.25);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
   --shadow-neon: 0 0 18px rgba(0, 245, 160, 0.3);
-  --shadow-cyan: 0 0 22px rgba(0, 217, 255, 0.2);
+  --shadow-neon-hover: 0 8px 32px rgba(0, 245, 160, 0.25), 0 0 18px rgba(0, 217, 255, 0.15);
+  --shadow-cyan: 0 0 22px rgba(0, 217, 255, 0.25);
 
-  /* Typography */
-  --font-primary: "Poppins", sans-serif;
+  /* ── Typography ── */
+  --font-primary: "Inter", sans-serif;
+  --font-mono: "Fira Code", "Courier New", monospace;
 
-  /* Spacing */
-  --section-padding: 80px 0;
-  --container-max-width: 1200px;
+  /* ── Spacing ── */
+  --section-padding: 90px 0;
 
-  /* Border Radius */
-  --radius-sm: 8px;
+  /* ── Border Radius ── */
+  --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
+  --radius-xl: 20px;
 
-  /* Transitions */
-  --transition-fast: 0.3s ease;
-  --transition-smooth: 0.5s ease;
+  /* ── Transitions ── */
+  --transition-fast: 0.25s ease;
+  --transition-smooth: 0.4s ease;
+}
+
+/* ── Mobile Overrides ── */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px 0;
+  }
 }
