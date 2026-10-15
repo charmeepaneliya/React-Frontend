@@ -10,7 +10,7 @@ const MainLayout = () => {
             <Row>
                 <Col>
                 <NavbarComponent/>
-                <Outlet/>
+                <Outlet />
                 </Col>
             </Row>
         </Container>

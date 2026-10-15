@@ -1,16 +1,17 @@
-import { Container,Navbar,Nav } from "react-bootstrap";
+import { Container,Navbar,Nav, NavLink } from "react-bootstrap";
+
 
 const NavbarComponent = () => {
   return (
     <>
-       <Navbar expand="lg" className="bg-body-tertiary">
+       <Navbar expand="lg" className="text-light bg-dark mt-2 rounded-5 " >
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">Student Management System</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link as={NavLink} to={"/"}>Students</Nav.Link>
+            <Nav.Link as={NavLink} to={"/add"}>Add</Nav.Link>
             
           </Nav>
         </Navbar.Collapse>
