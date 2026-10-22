@@ -114,11 +114,13 @@ import * as yup from "yup";
 import validationSchema from "../validation/validation";
 
 // import { addStudent } from "../api/studentFetch";
+// import { updateStudent } from "../api/studentFetch";
+import { addStudent,getStdById, updateStudent } from "../api/studentAxios";
 
-import { addStudent } from "../api/studentAxios";
+
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getStdById } from "../api/studentFetch";
+// import { addStudent, getStdById, updateStudent } from "../api/studentFetch";
 
 function StudentForm() {
   const { Formik } = formik;
@@ -137,8 +139,13 @@ function StudentForm() {
   useEffect(() => {
     const fetchStudentDetail = async () => {
       try {
+
+        if(!id){
+          return; 
+        }
+
         const std = await getStdById(id);
-        console.log("effect std",std)
+       
         setInitialValues({
           name:std.name,
           grId: std.grId,
@@ -156,14 +163,26 @@ function StudentForm() {
 
   return (
     <Formik
+      className="mt-5"
+      enableReinitialize
       validationSchema={validationSchema}
       onSubmit={async (values, { resetForm }) => {
-        const result = await addStudent(values);
-        resetForm();
 
-        if (result) {
-          navigate("/");
+        if(id){
+         await updateStudent(id,{
+            name:values.name,
+            email:values.email,
+            mobileNumber:values.mobileNumber
+          })
+        }else{
+           addStudent(values)
         }
+      
+        // const result = await addStudent(values);
+        resetForm();
+         navigate("/");
+
+        
       }}
       initialValues={initialValues}
     >
@@ -180,7 +199,7 @@ function StudentForm() {
               <Form.Control
                 type="text"
                 name="name"
-                value={initialValues.name}
+                value={values.name}
                 onChange={handleChange}
                 isValid={touched.name && !errors.name}
               />
@@ -196,7 +215,8 @@ function StudentForm() {
               <Form.Control
                 type="number"
                 name="grId"
-                value={initialValues.grId}
+                disabled={!!id}
+                value={values.grId}
                 onChange={handleChange}
                 isValid={touched.grId && !errors.grId}
               />
@@ -212,7 +232,7 @@ function StudentForm() {
                   placeholder="email"
                   aria-describedby="inputGroupPrepend"
                   name="email"
-                  value={initialValues.email}
+                  value={values.email}
                   onChange={handleChange}
                   isInvalid={!!errors.email}
                 />
@@ -232,7 +252,8 @@ function StudentForm() {
               <Form.Label>Course</Form.Label>
               <Form.Select
                 name="course"
-                value={initialValues.course}
+               disabled={!!id}
+                value={values.course}
                 onChange={handleChange}
                 isInvalid={!!errors.course}
               >
@@ -255,7 +276,8 @@ function StudentForm() {
               <Form.Label>Status</Form.Label>
               <Form.Select
                 name="isActive"
-                value={initialValues.isActive}
+                disabled={!!id}
+                value={values.isActive}
                 onChange={handleChange}
                 isInvalid={!!errors.isActive}
               >
@@ -280,7 +302,7 @@ function StudentForm() {
                 type="text"
                 placeholder="mobileNumber"
                 name="mobileNumber"
-                value={initialValues.mobileNumber}
+                value={values.mobileNumber}
                 onChange={handleChange}
                 isInvalid={!!errors.mobileNumber}
               />
@@ -316,7 +338,7 @@ function StudentForm() {
               feedbackTooltip
             />
           </Form.Group> */}
-          <Button type="submit">Submit form</Button>
+          <Button type="submit">{id ? "update":"submit"}</Button>
         </Form>
       )}
     </Formik>
