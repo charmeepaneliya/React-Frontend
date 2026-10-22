@@ -113,26 +113,59 @@ import * as formik from "formik";
 import * as yup from "yup";
 import validationSchema from "../validation/validation";
 
-import { addStudent } from "../api/studentFetch";
+// import { addStudent } from "../api/studentFetch";
 
-function FormExample() {
+import { addStudent } from "../api/studentAxios";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getStdById } from "../api/studentFetch";
+
+function StudentForm() {
   const { Formik } = formik;
+  const navigate = useNavigate();
+
+  const { id } = useParams();
+  const [initialValues, setInitialValues] = useState({
+    name: "",
+    grId: "0",
+    email: "",
+    course: "",
+    isActive: "",
+    mobileNumber: "",
+  });
+
+  useEffect(() => {
+    const fetchStudentDetail = async () => {
+      try {
+        const std = await getStdById(id);
+        console.log("effect std",std)
+        setInitialValues({
+          name:std.name,
+          grId: std.grId,
+          email:std.email,
+          course:std.course,
+          isActive:std.isActive,
+          mobileNumber:std.mobileNumber,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchStudentDetail();
+  }, [id]);
 
   return (
     <Formik
       validationSchema={validationSchema}
-      onSubmit={(values, { resetForm }) => {
-        addStudent(values);
+      onSubmit={async (values, { resetForm }) => {
+        const result = await addStudent(values);
         resetForm();
+
+        if (result) {
+          navigate("/");
+        }
       }}
-      initialValues={{
-        name: "",
-        grId: "0",
-        email: "",
-        course: "",
-        isActive: "",
-        mobileNumber: "",
-      }}
+      initialValues={initialValues}
     >
       {({ handleSubmit, handleChange, values, touched, errors }) => (
         <Form noValidate onSubmit={handleSubmit} className="mt-5">
@@ -147,7 +180,7 @@ function FormExample() {
               <Form.Control
                 type="text"
                 name="name"
-                value={values.name}
+                value={initialValues.name}
                 onChange={handleChange}
                 isValid={touched.name && !errors.name}
               />
@@ -163,7 +196,7 @@ function FormExample() {
               <Form.Control
                 type="number"
                 name="grId"
-                value={values.grId}
+                value={initialValues.grId}
                 onChange={handleChange}
                 isValid={touched.grId && !errors.grId}
               />
@@ -179,7 +212,7 @@ function FormExample() {
                   placeholder="email"
                   aria-describedby="inputGroupPrepend"
                   name="email"
-                  value={values.email}
+                  value={initialValues.email}
                   onChange={handleChange}
                   isInvalid={!!errors.email}
                 />
@@ -199,7 +232,7 @@ function FormExample() {
               <Form.Label>Course</Form.Label>
               <Form.Select
                 name="course"
-                value={values.course}
+                value={initialValues.course}
                 onChange={handleChange}
                 isInvalid={!!errors.course}
               >
@@ -222,10 +255,10 @@ function FormExample() {
               <Form.Label>Status</Form.Label>
               <Form.Select
                 name="isActive"
-                value={values.isActive}
+                value={initialValues.isActive}
                 onChange={handleChange}
                 isInvalid={!!errors.isActive}
-              > 
+              >
                 <option value="">Select Status</option>
                 <option value="active">Active</option>
                 <option value="pending">Pending</option>
@@ -247,7 +280,7 @@ function FormExample() {
                 type="text"
                 placeholder="mobileNumber"
                 name="mobileNumber"
-                value={values.mobileNumber}
+                value={initialValues.mobileNumber}
                 onChange={handleChange}
                 isInvalid={!!errors.mobileNumber}
               />
@@ -290,4 +323,4 @@ function FormExample() {
   );
 }
 
-export default FormExample;
+export default StudentForm;

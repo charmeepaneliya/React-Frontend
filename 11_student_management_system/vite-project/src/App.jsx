@@ -8,7 +8,8 @@ import Error from "./ui/Error";
 
 import Loading from "./ui/Loading";
 import { getAllStudents} from "./api/studentFetch"
-import AddStudent from "./components/AddStudent";
+
+import StudentForm from "./components/StudentForm";
 
 const Student = lazy(()=>import("./components/Student"))
 
@@ -32,8 +33,12 @@ const App = () => {
         },
          {
           path: "add",
-          element: <AddStudent />
+          element: <StudentForm />
         },
+        {
+          path:"/edit/:id",
+          element:<StudentForm />
+        }
       ],
     },
   ]);
