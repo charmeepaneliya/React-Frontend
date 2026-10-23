@@ -5,6 +5,7 @@ import App from './App.jsx'
 import ExpenseProvider from './context/ExpenseContext.jsx'
 import List from './components/List.jsx'
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ExpenseProvider>
