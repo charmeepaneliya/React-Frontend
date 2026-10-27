@@ -90,7 +90,7 @@ const List = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label htmlFor="ExpenceType">ExpenceType</Form.Label>
+            <Form.Label htmlFor="ExpenceType">ExpenseType</Form.Label>
             <Form.Select
               aria-label="Default select example"
               type="text"
@@ -98,7 +98,7 @@ const List = () => {
               value={expenceQuery.ExpenceType}
               onChange={(e) => handleChange("ExpenceType", e)}
             >
-              <option value="">Select Expence Type</option>
+              <option value="">Select Expense Type</option>
               <option value="Credit">Credit</option>
               <option value="Debit">Debit</option>
             </Form.Select>
@@ -126,7 +126,7 @@ const List = () => {
               <th>Category</th>
               <th>Amount</th>
               <th>Date</th>
-              <th>ExpenceType</th>
+              <th>ExpenseType</th>
               <th colSpan={2}>Actions</th>
             </tr>
           </thead>
