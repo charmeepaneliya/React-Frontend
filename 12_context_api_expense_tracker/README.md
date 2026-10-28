@@ -1,16 +1,116 @@
-# React + Vite
+# 💰 Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Expense Tracker project built using React.js to manage income and expenses.
 
-Currently, two official plugins are available:
+## 📌 About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Expense Tracker is a learning project I developed while learning React.js. It helps users manage their daily income and expenses in one place.
 
-## React Compiler
+I created this project to practise React components, Context API, `useReducer`, and state management.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- ➕ Add new income and expense transactions
+- 📋 View all transactions
+- ✏️ Edit existing transactions
+- 🗑️ Delete transactions
+- 💵 Calculate total income
+- 💸 Calculate total expenses
+- 📊 View the current balance
+- 🔍 Filter and sort transactions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- React.js
+- React Context API
+- React Hooks (`useReducer`, `useEffect`)
+- Vite
+
+## 📂 Project Structure
+
+```text
+12_context_api_expense_tracker/
+│
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── Add.jsx
+│   │   ├── Add.css
+│   │   ├── ExpenseData.jsx
+│   │   ├── ExpenseData.css
+│   │   ├── List.jsx
+│   │   └── List.css
+│   │
+│   ├── context/
+│   │   └── ExpenseContext.jsx
+│   │
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+│
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+## ⚙️ How to Run the Project
+
+**Step 1: Clone the repository**
+
+```bash
+git clone https://github.com/charmeepaneliya/React-Frontend.git
+```
+
+**Step 2: Navigate to the project folder**
+
+```bash
+cd React-Frontend/12_context_api_expense_tracker
+```
+
+**Step 3: Install dependencies**
+
+```bash
+npm install
+```
+
+**Step 4: Start the development server**
+
+```bash
+npm run dev
+```
+
+Open the local URL shown in the terminal in your browser.
+
+## 📚 What I Learned
+
+Through this project, I practised:
+
+- Creating React components
+- Using React Hooks
+- Managing state with `useReducer`
+- Sharing data using the Context API
+- Handling form inputs
+- Adding, editing, and deleting transactions
+- Organizing components and files
+- Calculating income, expenses, and balance
+
+## 🎯 Project Goal
+
+The goal of this project is to improve my React.js skills through practical implementation and understand how state management works in React applications.
+
+## 👩‍💻 Developer
+
+**Charmee Paneliya**
+
+- GitHub: [charmeepaneliya](https://github.com/charmeepaneliya)
+- LinkedIn: [Charmee Paneliya](https://www.linkedin.com/in/charmee-paneliya-19552538a/)
+
+---
+
+⭐ *This project is part of my journey of learning and improving my React.js development skills.*
