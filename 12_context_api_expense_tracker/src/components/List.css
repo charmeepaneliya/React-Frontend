@@ -1,0 +1,181 @@
+.list-panel {
+  min-width: 0;
+}
+
+.list-heading {
+  padding-bottom: 18px;
+}
+
+.list-count {
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(0, 217, 255, 0.055);
+  color: #b4eefa;
+  font-size: 0.74rem;
+  font-weight: 600;
+  box-shadow: 0 0 18px rgba(0, 217, 255, 0.035);
+}
+
+.filter-form {
+  margin-bottom: 23px;
+  padding: 17px;
+  border: 1px solid rgba(168, 190, 220, 0.12);
+  border-radius: 15px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(167, 139, 250, 0.055), transparent 55%),
+    rgba(8, 13, 27, 0.55);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.025);
+}
+
+.filter-form .form-control,
+.filter-form .form-select {
+  min-height: 42px;
+  font-size: 0.84rem;
+}
+
+.filter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.filter-actions .primary-action {
+  min-height: 40px;
+  margin: 0;
+  padding: 8px 17px;
+}
+
+.clear-action {
+  min-height: 40px;
+  border-color: rgba(168, 190, 220, 0.18);
+  border-radius: 10px;
+  color: #d0d9e7;
+  font-size: 0.82rem;
+}
+
+.clear-action:hover {
+  border-color: rgba(0, 217, 255, 0.38);
+  background: rgba(0, 217, 255, 0.075);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(0, 217, 255, 0.08);
+}
+
+.expense-table-wrap {
+  margin: 0 -23px -23px;
+}
+
+.expense-table {
+  min-width: 760px;
+  margin: 0;
+  --bs-table-bg: transparent;
+  --bs-table-color: #cbd5e3;
+  --bs-table-hover-color: #f8fafc;
+  --bs-table-hover-bg: rgba(0, 217, 255, 0.045);
+  --bs-table-border-color: rgba(168, 190, 220, 0.1);
+}
+
+.expense-table thead th {
+  padding: 12px 14px;
+  border-top: 1px solid rgba(168, 190, 220, 0.12);
+  border-bottom: 1px solid rgba(168, 190, 220, 0.12);
+  background: rgba(8, 13, 27, 0.52);
+  color: #a8b3c7;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.expense-table tbody td {
+  padding: 14px;
+  font-size: 0.81rem;
+  vertical-align: middle;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.expense-table tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.expense-table tbody tr:hover td {
+  background: rgba(0, 217, 255, 0.035);
+}
+
+.expense-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.expense-title-cell {
+  color: var(--text-primary) !important;
+  font-weight: 650;
+}
+
+.expense-amount-cell {
+  color: var(--accent) !important;
+  font-weight: 700;
+  white-space: nowrap;
+  text-shadow: 0 0 16px rgba(0, 245, 160, 0.15);
+}
+
+.expense-type-badge {
+  padding: 6px 9px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.69rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.expense-type-badge.is-credit {
+  border-color: rgba(0, 245, 160, 0.23);
+  background: linear-gradient(110deg, rgba(0, 245, 160, 0.13), rgba(0, 245, 160, 0.055));
+  color: #69f7c2;
+  box-shadow: 0 0 14px rgba(0, 245, 160, 0.04);
+}
+
+.expense-type-badge.is-debit {
+  border-color: rgba(0, 217, 255, 0.22);
+  background: linear-gradient(110deg, rgba(0, 217, 255, 0.12), rgba(167, 139, 250, 0.07));
+  color: #8beaff;
+  box-shadow: 0 0 14px rgba(0, 217, 255, 0.04);
+}
+
+.table-action {
+  border-color: rgba(168, 190, 220, 0.18);
+  border-radius: 8px;
+  color: #d0d9e7;
+  font-size: 0.72rem;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.table-action:hover {
+  border-color: rgba(0, 245, 160, 0.45);
+  background: rgba(0, 245, 160, 0.09);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(0, 245, 160, 0.07);
+  transform: translateY(-1px);
+}
+
+.table-action.delete-action {
+  border-color: rgba(167, 139, 250, 0.26);
+  color: #c4b3ff;
+}
+
+.table-action.delete-action:hover {
+  border-color: rgba(167, 139, 250, 0.52);
+  background: rgba(167, 139, 250, 0.11);
+  box-shadow: 0 0 16px rgba(167, 139, 250, 0.08);
+}
+
+@media (max-width: 575.98px) {
+  .filter-form {
+    padding: 13px;
+  }
+
+  .expense-table-wrap {
+    margin: 0 -18px -18px;
+  }
+}

@@ -181,7 +181,7 @@ const expenseReducer = (state, action) => {
           Category: input.Category,
           Amount: input.Amount,
           Date: input.Date,
-          Type: input.Type,
+          ExpenseType: input.ExpenseType,
         };
         return {
           ...state,
@@ -223,7 +223,7 @@ const ExpenseProvider = ({ children }) => {
     console.log(localStorage.getItem("expense"));
   }, [state.expenseList]);
 
-  const addExpense = (input) => {
+  const handleAdd = (input) => {
     if (!input) {
       alert("all field is required");
     }
@@ -233,14 +233,14 @@ const ExpenseProvider = ({ children }) => {
     });
   };
 
-  const deleteExpense = (id) => {
+  const handleDelete = (id) => {
     dispatch({
       type: "delete",
       payload: id,
     });
   };
 
-  const handleExpenseEdit = (id) => {
+  const handleEdit = (id) => {
     const editExpense = state.expenseList.find((l) => l.id === id);
 
     dispatch({
@@ -265,10 +265,10 @@ const ExpenseProvider = ({ children }) => {
 
   const value = {
     expenseList: state.expenseList,
-    addExpense,
-    handleExpenseEdit,
-    editValue: state.editValue,
-    deleteExpense,
+    handleAdd,
+    handleEdit,
+    editVal: state.editVal,
+    handleDelete,
     credit,
     debit,
     balance,
