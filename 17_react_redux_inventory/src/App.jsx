@@ -7,35 +7,17 @@ import {
   increment,
   reset,
 } from "./features/counterSlice";
+import Add from "./components/Add";
+import Counter from "./components/Counter";
+import List from "./components/List";
 
 const App = () => {
-  const { count } = useSelector((state) => state.counter);
-
-  const dispatch = useDispatch();
-
-  const [number,setNumber] = useState(0)
-  
   return (
     <>
-      <h1>Redux Counter</h1>
-
-      <h2>{count}</h2>
-      <br />
-
-      <input
-        type="number"
-        placeholder="enter custom number"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
-      />
-
-      <button onClick={() => dispatch(increment())}>Increment</button>
-      <button onClick={() => dispatch(decrement())}>Decrement</button>
-      <button onClick={() => dispatch(reset())}>Reset</button>
-      <button onClick={() => dispatch(custom(number))}>custom increment</button>
-      <button onClick={() => dispatch(customDecrement(number))}>
-        custom decrement
-      </button>
+     
+      {/* <Counter/> */}
+       <Add />
+       <List/>
     </>
   );
 };
