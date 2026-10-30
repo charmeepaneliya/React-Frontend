@@ -22,7 +22,7 @@ const List = () => {
 
         <tbody>
           {products.map((p, index) => (
-            <tr key={index}>
+            <tr key={p.id}>
               <td>{index + 1}</td>
               <td>{p.name}</td>
               <td>{p.qty}</td>

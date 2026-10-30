@@ -3,10 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [
     {
+      id:1,
       name: "phone",
       qty: 1,
       price: 100000,
       category: "electronics",
+    },
+     {
+      id: 2,
+      name: "Laptop",
+      qty: 2,
+      price: 50000,
+      category: "Electronics",
     },
   ],
 };
@@ -28,11 +36,11 @@ const inventorySlice = createSlice({
     },
 
     edit:(state,action) => {
-        const productEdit = state.products.find((p)=>p.id === action.payload.id);
+        state.products = state.products.find((p)=>p.id === action.payload.id);
     },
 
     deleteProduct:(state,action) => {
-      const productDelete =  state.products.filter((p)=>p.id === action.payload);
+      state.products = state.products.filter((p)=>p.id !== action.payload);
     }
   },
 });
