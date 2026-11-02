@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {edit, deleteProduct} from "../features/inventorySlice";
 
 const List = () => {
-  const { products } = useSelector((state) => state.inventory);
+  const { products,editVal } = useSelector((state) => state.inventory);
+  console.log("Selected Product:", editVal);
   const dispatch = useDispatch();
   return (
     <>
@@ -21,8 +22,9 @@ const List = () => {
         </thead>
 
         <tbody>
-          {products.map((p, index) => (
-            <tr key={p.id}>
+          {products.map((p, index) => {
+            return(
+                  <tr key={p.id}>
               <td>{index + 1}</td>
               <td>{p.name}</td>
               <td>{p.qty}</td>
@@ -35,7 +37,9 @@ const List = () => {
                 <button onClick={() =>dispatch(deleteProduct(p.id))}>Delete</button>
               </td>
             </tr>
-          ))}
+            )
+        
+          })}
         </tbody>
       </table>
     </>

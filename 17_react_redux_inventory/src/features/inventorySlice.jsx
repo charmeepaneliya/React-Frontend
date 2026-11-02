@@ -17,6 +17,7 @@ const initialState = {
       category: "Electronics",
     },
   ],
+  editVal:null,
 };
 
 const inventorySlice = createSlice({
@@ -37,9 +38,9 @@ const inventorySlice = createSlice({
 
     edit: (state, action) => {
       const editProducts = state.products.find(
-        (p) => p.id === action.payload.id,
+        (p) => p.id === action.payload,
       );
-      state.products = editProducts;
+      state.editVal = editProducts;
     },
 
     deleteProduct: (state, action) => {
