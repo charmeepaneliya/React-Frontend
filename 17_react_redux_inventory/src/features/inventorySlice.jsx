@@ -17,7 +17,7 @@ const initialState = {
       category: "Electronics",
     },
   ],
-  editVal:null,
+  editVal: null,
 };
 
 const inventorySlice = createSlice({
@@ -36,23 +36,35 @@ const inventorySlice = createSlice({
       console.log("product list", [...state.products]);
     },
 
-    edit: (state, action) => {
-      const editProducts = state.products.find(
-        (p) => p.id === action.payload,
-      );
+    setEditVal: (state, action) => {
+      const editProducts = state.products.find((p) => p.id === action.payload);
       state.editVal = editProducts;
     },
 
-    deleteProduct: (state, action) => {
-      const productDelete = state.products.filter(
-        (p) => p.id !== action.payload,
-      );
+    handleEdit: (state, action) => {
+      const index = state.products.findIndex((p) => p.id === state.editVal.id);
 
-      state.products = productDelete;
+      if (index !== -1) {
+        state.products[index] = action.payload;
+      }
+      state.editVal = null;
+    },
+
+    handleDelete: (state, action) => {
+      // const productDelete = state.products.filter(
+      //   (p) => p.id !== action.payload,
+      // );
+
+      // state.products = productDelete;
+
+      const index = state.products.findIndex((p) => p.id === action.payload);
+      if (index !== -1) {
+        state.products.splice(index, 1);
+      }
     },
   },
 });
 
-export const { add, edit, deleteProduct } = inventorySlice.actions;
+export const { add, setEditVal, handleDelete, handleEdit } = inventorySlice.actions;
 
 export default inventorySlice.reducer;
