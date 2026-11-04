@@ -1,3 +1,6 @@
+# Project Live Link:
+    https://react-frontend-std-management-sytem.vercel.app/
+---    
 # Student Management System
 
 A simple **Student Management System** built using React.js. This project helps to manage student records with basic CRUD operations.
