@@ -187,7 +187,7 @@ function StudentForm() {
       initialValues={initialValues}
     >
       {({ handleSubmit, handleChange, values, touched, errors }) => (
-        <Form noValidate onSubmit={handleSubmit} className="mt-5">
+        <Form noValidate onSubmit={handleSubmit} className="student-form mt-5">
           <Row className="mb-3">
             <Form.Group
               as={Col}
@@ -312,33 +312,8 @@ function StudentForm() {
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
-          {/* <Form.Group className="position-relative mb-3">
-            <Form.Label>File</Form.Label>
-            <Form.Control
-              type="file"
-              required
-              name="file"
-              onChange={handleChange}
-              isInvalid={!!errors.file}
-            />
-            <Form.Control.Feedback type="invalid" tooltip>
-              {errors.file}
-            </Form.Control.Feedback>
-          </Form.Group> */}
-          {/* <Form.Group className="position-relative mb-3">
-            <Form.Check
-              required
-              name="terms"
-              label="Agree to terms and conditions"
-              onChange={handleChange}
-              isInvalid={!!errors.terms}
-              feedback={errors.terms}
-              feedbackType="invalid"
-              id="validationFormik106"
-              feedbackTooltip
-            />
-          </Form.Group> */}
-          <Button type="submit">{id ? "update":"submit"}</Button>
+         
+          <Button type="submit" className="submit-btn">{id ? "update":"submit"}</Button>
         </Form>
       )}
     </Formik>

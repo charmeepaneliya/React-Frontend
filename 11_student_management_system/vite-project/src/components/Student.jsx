@@ -60,7 +60,7 @@ const handleDelete =async(id)=>{
 
   
   return (
-    <Table striped bordered hover className="mt-4">
+    <Table striped bordered hover className="student-table mt-4">
         <thead>
           <tr>
             <th>sr.no</th>

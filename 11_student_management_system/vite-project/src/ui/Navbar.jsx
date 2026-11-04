@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const NavbarComponent = () => {
   return (
     <>
-       <Navbar expand="lg" className="text-light bg-secondary mt-2 rounded-5 " >
+       <Navbar expand="lg" className="student-navbar mt-3 " >
       <Container>
         <Navbar.Brand href="#home" className="text-light">Student Management System</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

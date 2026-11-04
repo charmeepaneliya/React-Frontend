@@ -1,0 +1,157 @@
+
+/* ===== COMMON CSS ===== */
+
+body {
+  background-color: #f5f7fb;
+  font-family: Arial, sans-serif;
+  color: #2c3e50;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+
+/* ===== NAVBAR CSS ===== */
+
+.student-navbar {
+  background: linear-gradient(135deg, #1e3a5f, #2563a6);
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.student-navbar .navbar-brand {
+  color: white;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.student-navbar .nav-link {
+  color: #eaf2ff;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 15px;
+  transition: 0.3s;
+}
+
+.student-navbar .nav-link:hover {
+  color: #ffd166;
+}
+
+
+/* ===== STUDENT FORM ===== */
+
+.student-form {
+  background-color: white;
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e8edf5;
+}
+
+.student-form .form-label {
+  color: #34495e;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.student-form .form-control,
+.student-form .form-select {
+  padding: 12px 14px;
+  border: 1px solid #dce3ed;
+  border-radius: 8px;
+  background-color: #fbfcff;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.student-form .form-control:focus,
+.student-form .form-select:focus {
+  background-color: white;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.12);
+}
+
+
+/* ===== SUBMIT BUTTON ===== */
+
+.submit-btn {
+  background: linear-gradient(135deg, #2563a6, #3498db);
+  color: white;
+  border: none;
+  padding: 11px 35px;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #1e4978, #217dbb);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(37, 99, 166, 0.25);
+}
+
+
+/* ===== STUDENT TABLE ===== */
+
+.student-table {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5eaf1;
+  margin-top: 25px;
+}
+
+.student-table th {
+  background-color: #1e3a5f !important;
+  color: white !important;
+  padding: 16px;
+  font-weight: 600;
+  border-color: #345575;
+}
+
+.student-table td {
+  padding: 14px;
+  color: #44546a;
+  vertical-align: middle;
+}
+
+.student-table tbody tr {
+  transition: 0.2s;
+}
+
+.student-table tbody tr:hover td {
+  background-color: #edf5ff;
+}
+
+
+/* ===== RESPONSIVE CSS ===== */
+
+@media (max-width: 768px) {
+  .student-form {
+    padding: 20px;
+    margin: 25px auto;
+  }
+
+  .student-navbar {
+    padding: 12px;
+  }
+
+  .student-navbar .nav-link {
+    margin-left: 0;
+  }
+
+  .student-table {
+    font-size: 13px;
+  }
+
+  .student-table th,
+  .student-table td {
+    padding: 9px;
+  }
+}
