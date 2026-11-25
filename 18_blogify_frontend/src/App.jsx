@@ -1,0 +1,33 @@
+import React from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import MainLayout from './routes/MainLayout'
+import Blog from './components/Blog';
+import Login from './pages/Login';
+import Register from './pages/Register';
+
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element:<MainLayout/>,
+    children:[
+      {
+        index:true,
+        element:<Blog/>,
+      },
+      {
+        path:"login",
+        element:<Login/>
+      },
+      {
+        path:"register",
+        element:<Register/>
+      }
+    ]
+  }
+]);
+
+const App = () => {
+  return <RouterProvider router={router}/>
+}
+
+export default App
