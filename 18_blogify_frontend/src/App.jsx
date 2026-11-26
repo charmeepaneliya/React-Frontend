@@ -4,6 +4,7 @@ import MainLayout from './routes/MainLayout'
 import Blog from './components/Blog';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import AddBlog from './components/AddBlog';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path:"register",
         element:<Register/>
+      },
+      {
+        path:"add-blog",
+        element:<AddBlog/>
       }
     ]
   }

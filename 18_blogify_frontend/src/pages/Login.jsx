@@ -23,7 +23,15 @@ const Login = () => {
 
     try{
       const res = await userAxios.post("/login",userData);
-      console.log("Login Successfull");
+      // console.log("Login Successfull");
+      console.log("Login response:",res.data);
+
+      //Store token in LocalStorage
+
+      localStorage.setItem("token",res.data.token);
+
+        // Store user details in LocalStorage
+        localStorage.setItem("user",JSON.stringify(res.data.user))
 
       navigate("/")
     }catch(error){
