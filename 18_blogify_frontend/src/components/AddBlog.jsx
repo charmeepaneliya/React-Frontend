@@ -102,7 +102,7 @@ const AddBlog = () => {
             type="file"
             name="image"
             accept= "image/*"
-            onChange={(e) => handleChange("image", e)}
+            onChange={handleImage}
           />
           <br />
           <br />
